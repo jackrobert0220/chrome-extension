@@ -3,17 +3,17 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 
-// localStorage.setItem("myLeads", "www.jackglazer.com")
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 
-// localStorage.getItem("myLeads")
-// console.log("myLeads")
-
-// localStorage.clear()
+console.log(leadsFromLocalStorage)
 
 inputBtn.addEventListener("click", function () {
   myLeads.push(inputEl.value);
   inputEl.value = "";
+  localStorage.setItem("myLeads", JSON.stringify(myLeads) )
   renderLeads();
+  //verify that it works
+  console.log( localStorage.getItem("myLeads") )
 });
 
 function renderLeads() {
@@ -26,7 +26,6 @@ function renderLeads() {
         </a>
       </li>
       `;
-    console.log(listItems);
   }
   ulEl.innerHTML = listItems;
 }
