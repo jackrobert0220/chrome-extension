@@ -10,10 +10,10 @@ console.log(leadsFromLocalStorage);
 
 if (leadsFromLocalStorage) {
   myLeads = leadsFromLocalStorage;
-  render(leads);
+  render(myLeads);
 }
 
-function render() {
+function render(leads) {
   let listItems = "";
   for (let i = 0; i < leads.length; i++) {
     listItems += `
